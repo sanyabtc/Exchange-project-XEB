@@ -1,5 +1,6 @@
 import Network
 
+//MARK: Network
 class NetWorkMonitor {
     private var monitor: NWPathMonitor?
     private var isConnected: Bool = true
@@ -26,4 +27,5 @@ class NetWorkMonitor {
     func isNetworkAvailable() -> Bool {
         return isConnected
     }
+    
 }

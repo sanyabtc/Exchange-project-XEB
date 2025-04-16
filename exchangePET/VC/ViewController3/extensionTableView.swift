@@ -1,20 +1,25 @@
-import Foundation
+//
+//  extensionTableView.swift
+//  exchangePET
+//
+//  Created by Александр Басалаев on 16.04.2025.
+//
+
 import UIKit
+import Foundation
 
-class ViewController3: UIViewController, UITableViewDelegate, UITableViewDataSource {
+let identifierForTableInVc3 = "Cell"
 
-    let identifier = "Cell"
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+let sections = [
+    "Выбирайте лучших",
+    "Офисы",
+    "Персональный менеджер",
+    "Круглосуточная поддержка"
+]
+
+extension ViewController3: UITableViewDelegate, UITableViewDataSource {
     //MARK: TableViewDataSource
-    let sections = [
-        "Выбирайте лучших",
-        "Офисы",
-        "Персональный менеджер",
-        "Круглосуточная поддержка"
-    ]
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
@@ -25,7 +30,7 @@ class ViewController3: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifierForTableInVc3, for: indexPath)
         
         cell.textLabel?.text = sections[indexPath.section]
         cell.accessoryType = .disclosureIndicator
@@ -53,16 +58,5 @@ class ViewController3: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
-    }
-    
-    //MARK: Actions
-    @IBAction func buttonTelegramLink(_ sender: Any) {
-        telegramLink()
-    }
-    @IBAction func buttonWhatsAppLink(_ sender: Any) {
-        whatsAppLink()
-    }
-    @IBAction func buttonMailLink(_ sender: Any) {
-        mailLink()
     }
 }

@@ -1,7 +1,9 @@
 import Foundation
 import UIKit
 
-class APIservice: UIViewController {
+//You can own your api key at abcex.io
+
+class ApiService {
     var marketPrice: Double?
     //MARK: fetchMarketPrice
     func fetchMarketPrice(completion: @escaping (Double?) -> Void) {
@@ -14,7 +16,7 @@ class APIservice: UIViewController {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("Bearer API-TOKEN", forHTTPHeaderField: "Authorization")
+        request.addValue("<API KEY>", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -43,20 +45,5 @@ class APIservice: UIViewController {
         }
         
         task.resume()
-    }
-    
-    
-    struct MarketPrice: Codable {
-        let resourceType: String
-        let price: Double?
-        let askPrice: Double
-        let bidPrice: Double
-        let askOrder: Double?
-        let bidOrder: Double?
-        
-        enum CodingKeys: String, CodingKey {
-            case resourceType = "$resourceType"
-            case price, askPrice, bidPrice, askOrder, bidOrder
-        }
     }
 }
