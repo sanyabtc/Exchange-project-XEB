@@ -219,6 +219,10 @@
                                     <constraint firstAttribute="width" constant="100" id="rPi-r1-ZPQ"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zec-Gu-68J">
+                                <rect key="frame" x="333" y="74" width="20" height="20"/>
+                                <color key="color" red="0.086706267249999996" green="0.76942896839999997" blue="0.48678674" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="chG-P9-8nB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -258,6 +262,8 @@
                             <constraint firstItem="wMl-nx-Ed8" firstAttribute="leading" secondItem="zv6-bV-nZ5" secondAttribute="leadingMargin" constant="44" id="jkw-sM-ucC"/>
                             <constraint firstItem="xhc-fh-mUU" firstAttribute="top" secondItem="chG-P9-8nB" secondAttribute="top" constant="60" id="k1k-O3-kub"/>
                             <constraint firstItem="7pS-Bw-lCF" firstAttribute="centerX" secondItem="zv6-bV-nZ5" secondAttribute="centerX" id="kgY-tV-y9O"/>
+                            <constraint firstItem="zec-Gu-68J" firstAttribute="top" secondItem="chG-P9-8nB" secondAttribute="top" constant="15" id="kxe-tL-Ctb"/>
+                            <constraint firstItem="chG-P9-8nB" firstAttribute="trailing" secondItem="zec-Gu-68J" secondAttribute="trailing" constant="40" id="l74-0q-du8"/>
                             <constraint firstItem="fnl-bV-SOR" firstAttribute="top" secondItem="4gv-UJ-O6i" secondAttribute="bottom" constant="10" id="nnH-vx-G4M"/>
                             <constraint firstItem="NW5-Mp-AAn" firstAttribute="top" secondItem="khj-Sk-mXU" secondAttribute="bottom" constant="5" id="sWF-SQ-j22"/>
                             <constraint firstItem="chG-P9-8nB" firstAttribute="trailing" secondItem="V2t-sl-eqs" secondAttribute="trailing" constant="60" id="urw-xn-YU6"/>
@@ -275,6 +281,7 @@
                     <connections>
                         <outlet property="bottomButtonOutlet" destination="rQU-Oz-hVv" id="23a-DZ-iPI"/>
                         <outlet property="bottomTextfield" destination="HAg-DE-2lU" id="LuL-Wm-cCZ"/>
+                        <outlet property="indicator" destination="zec-Gu-68J" id="Ouy-tT-aTq"/>
                         <outlet property="labelBackGround" destination="AEp-Id-T7z" id="bFq-JP-3nr"/>
                         <outlet property="labelLastUpdate" destination="iwY-7z-Zu2" id="NpY-rb-OD0"/>
                         <outlet property="timerLabel" destination="Et9-4x-NcY" id="kbO-TX-rFQ"/>

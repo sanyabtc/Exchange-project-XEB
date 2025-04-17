@@ -35,12 +35,14 @@ class TimeService {
             } else if seconds == 0 {
                 self.viewController?.timerLabel.text = "00:0\(seconds)"
                 
+                self.viewController?.getPrice()
+                
                 guard networkMonitor.isNetworkAvailable() else {
                     alerts.alertNotConnection(on: viewController!)
                     return
                 }
                 
-                self.viewController?.getPrice()
+                
                 seconds = 31
             }
 

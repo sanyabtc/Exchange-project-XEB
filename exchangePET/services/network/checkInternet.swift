@@ -1,4 +1,5 @@
 import Network
+import UIKit
 
 //MARK: Network
 class NetWorkMonitor {

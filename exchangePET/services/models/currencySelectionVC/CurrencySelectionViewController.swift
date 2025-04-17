@@ -14,7 +14,7 @@ class CurrencySelectionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Data
-    weak var delegate: CurrencySeletcionDelegate?
+    weak var delegate: CurrencySelectionDelegate?
     var currencies: [Currency] = currenciesModel
     var selectedIndex: IndexPath?
     var textTitle = "Выберите нужную валюту"

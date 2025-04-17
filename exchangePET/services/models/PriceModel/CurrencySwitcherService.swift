@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class CurrencySwitcher {
-    static func swtichCurrencies(topIndex: inout IndexPath?, bottomIndex: inout IndexPath?) {
+    static func switchCurrencies(topIndex: inout IndexPath?, bottomIndex: inout IndexPath?) {
         swap(&topIndex, &bottomIndex)
         
         if let top = topIndex?.row {

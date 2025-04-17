@@ -16,7 +16,7 @@ class ApiService {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("<API KEY>", forHTTPHeaderField: "Authorization")
+        request.addValue("API KEY", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {

@@ -8,6 +8,6 @@
 import UIKit
 import Foundation
 
-protocol CurrencySeletcionDelegate: AnyObject {
+protocol CurrencySelectionDelegate: AnyObject {
     func currencySelected(_ currency: Currency, forTopButton: Bool)
 }

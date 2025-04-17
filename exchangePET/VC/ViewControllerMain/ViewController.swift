@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, CurrencySeletcionDelegate {
+class ViewController: UIViewController, CurrencySelectionDelegate {
     
     //MARK: OUTLETS
     @IBOutlet weak var labelBackGround: UILabel!
@@ -17,6 +17,7 @@ class ViewController: UIViewController, CurrencySeletcionDelegate {
     @IBOutlet weak var topTextfield: UITextField!
     @IBOutlet weak var bottomTextfield: UITextField!
     @IBOutlet weak var labelLastUpdate: UILabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     //MARK: Data
     let apiService = ApiService()
@@ -29,12 +30,15 @@ class ViewController: UIViewController, CurrencySeletcionDelegate {
     let bottomTextFieldFormatter = CurrencyTextFieldFormatter()
     private var currentTopCurrency: String = ""
     private var currentBotCurrency: String = ""
+    var monitor = NetWorkMonitor()
 
     //MARK: LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        monitor.startMonitoring()
+        
         SettingsForView.settingsForViewController(for: self)
         getPrice()
         lastChoosedCurrency()
@@ -51,6 +55,7 @@ class ViewController: UIViewController, CurrencySeletcionDelegate {
         
         let tapgesture = UITapGestureRecognizer(target: self, action: #selector(dissMissKeyBoard))
         view.addGestureRecognizer(tapgesture)
+
     }
 
     //MARK: DissMissKeyBoard
@@ -118,6 +123,7 @@ class ViewController: UIViewController, CurrencySeletcionDelegate {
     
     //MARK: GET PRICE
     func getPrice() {
+        indicator.startAnimating()
         apiService.fetchMarketPrice { [weak self] price in
             guard let self, let price else {
                 return
@@ -125,6 +131,8 @@ class ViewController: UIViewController, CurrencySeletcionDelegate {
             self.cachedPrice = price
             DispatchQueue.main.async {
                 let timeStamp = TimeService.getCurrentTime()
+                self.indicator.stopAnimating()
+                self.indicator.hidesWhenStopped = true
                 self.labelLastUpdate.text = "Последнее обновление \(timeStamp)"
                 self.timeService?.StartTimer()
                 self.updatePlaceHolder()
@@ -205,14 +213,19 @@ class ViewController: UIViewController, CurrencySeletcionDelegate {
     
     @IBAction func buttonSwitch(_ sender: Any) {
         getPrice()
+        
         let temp = currentTopCurrency
         currentTopCurrency = currentBotCurrency
         currentBotCurrency = temp
+        
         topButtonOutlet.setAttributedTitle(SettingsForView.setBoldTitle(text: currentTopCurrency), for: .normal)
         bottomButtonOutlet.setAttributedTitle(SettingsForView.setBoldTitle(text: currentBotCurrency), for: .normal)
-        CurrencySwitcher.swtichCurrencies(topIndex: &choosedIndexPathTop, bottomIndex: &choosedIndexPathBot)
+        
+        CurrencySwitcher.switchCurrencies(topIndex: &choosedIndexPathTop, bottomIndex: &choosedIndexPathBot)
+        
         topTextfield.text = ""
         bottomTextfield.text = ""
+        
         updatePlaceHolder()
     }
     
