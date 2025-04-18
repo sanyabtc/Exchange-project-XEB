@@ -132,4 +132,34 @@ struct TradeCalculator {
         
         return formatter.string(from: NSNumber(value: result))
     }
+    
+    
+    static func calculatePrice(
+        topCurrency: WhichCurrencyChoosed,
+        bottomCurrency: WhichCurrencyChoosed,
+        price: Double?
+    ) -> String? {
+        guard let price else {
+            return nil
+        }
+        var result = price
+        
+        switch (topCurrency, bottomCurrency) {
+        case (.rub, .usdt):
+            result = price * 1.005
+        case (.usdt, .rub):
+            result = price * 0.995
+        case (.rub, .usd):
+            result = price * 1.01
+        case (.usd, .rub):
+            result = price * 0.99
+        case (.usd, .usdt):
+            result = 1.005
+        case (.usdt, .usd):
+            result = 1.005
+        default:
+            return nil
+        }
+        return String(format: "%.4f", result)
+    }
 }

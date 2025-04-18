@@ -18,6 +18,8 @@ class ViewController: UIViewController, CurrencySelectionDelegate {
     @IBOutlet weak var bottomTextfield: UITextField!
     @IBOutlet weak var labelLastUpdate: UILabel!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var fixButton: UIButton!
+    @IBOutlet weak var tableViewFixHistory: UITableView!
     
     //MARK: Data
     let apiService = ApiService()
@@ -31,6 +33,7 @@ class ViewController: UIViewController, CurrencySelectionDelegate {
     private var currentTopCurrency: String = ""
     private var currentBotCurrency: String = ""
     var monitor = NetWorkMonitor()
+    let alerts = Alerts()
 
     //MARK: LifeCycle
 
@@ -56,6 +59,7 @@ class ViewController: UIViewController, CurrencySelectionDelegate {
         let tapgesture = UITapGestureRecognizer(target: self, action: #selector(dissMissKeyBoard))
         view.addGestureRecognizer(tapgesture)
 
+        fixedHistorySave.uploadHistory()
     }
 
     //MARK: DissMissKeyBoard
@@ -100,8 +104,7 @@ class ViewController: UIViewController, CurrencySelectionDelegate {
             CurrencyStorage.saveBottomCurrency(index: index)
             choosedIndexPathBot = IndexPath(row: index, section: 0)
         }
-        topTextfield.text = ""
-        bottomTextfield.text = ""
+        updateUI()
         self.getPrice()
     }
     func lastChoosedCurrency() {
@@ -159,8 +162,7 @@ class ViewController: UIViewController, CurrencySelectionDelegate {
             return
         }
         if value.isEmpty {
-            topTextfield.text = ""
-            bottomTextfield.text = ""
+            updateUI()
             return
         }
         let sourceIsTop: Bool = (ChangeField == topTextfield)
@@ -198,37 +200,80 @@ class ViewController: UIViewController, CurrencySelectionDelegate {
         topTextfield.placeholder = placeHolders.top
         bottomTextfield.placeholder = placeHolders.bottom
     }
+    //MARK: Methods FIX
+    private func validateInputFields() -> Bool {
+        guard let input = topTextfield.text, !input.isEmpty,
+              let output = bottomTextfield.text, !output.isEmpty else {
+            return false
+        }
+        return true
+    }
+    
+    private func calculatedResultPrice() -> String? {
+        guard let cachedPrice else {
+            return nil
+        }
+        let trade = TradeCalculator()
+        guard let top = trade.mapTitleToCurrency(currentTopCurrency),
+              let bot = trade.mapTitleToCurrency(currentBotCurrency) else {
+            return nil
+        }
+        return TradeCalculator.calculatePrice(topCurrency: top, bottomCurrency: bot, price: cachedPrice)
+    }
+    
+    private func createFixedString(resultPrice: String) -> String {
+        let fix = FixHistory(codeInput: currentTopCurrency, codeOutput: currentBotCurrency, time: TimeService.getCurrentTime(), inputSum: topTextfield.text ?? "", outputSum: bottomTextfield.text ?? "")
+        
+        return fix.dataInput(codeInput: fix.codeInput, codeOutput: fix.codeOutput, time: fix.time, inputSum: fix.inputSum, outputSum: fix.outputSum, price: resultPrice)
+    }
+    
+    private func saveTable(with text: String) {
+        sectionsTableView.insert(text, at: 0)
+        tableViewFixHistory.reloadData()
+        fixedHistorySave.saveHistory()
+
+    }
+    
+    private func updateUI() {
+        topTextfield.text = ""
+        bottomTextfield.text = ""
+    }
     
     //MARK: Actions
-    
     @IBAction func topButton(_ sender: Any) {
         showCurrencySelector(isTop: true, selectedIndex: choosedIndexPathTop)
     }
-    
     
     @IBAction func bottomButton(_ sender: Any) {
         showCurrencySelector(isTop: false, selectedIndex: choosedIndexPathBot)
     }
     
-    
     @IBAction func buttonSwitch(_ sender: Any) {
         getPrice()
-        
         let temp = currentTopCurrency
         currentTopCurrency = currentBotCurrency
         currentBotCurrency = temp
-        
         topButtonOutlet.setAttributedTitle(SettingsForView.setBoldTitle(text: currentTopCurrency), for: .normal)
         bottomButtonOutlet.setAttributedTitle(SettingsForView.setBoldTitle(text: currentBotCurrency), for: .normal)
         
         CurrencySwitcher.switchCurrencies(topIndex: &choosedIndexPathTop, bottomIndex: &choosedIndexPathBot)
-        
-        topTextfield.text = ""
-        bottomTextfield.text = ""
-        
+        updateUI()
         updatePlaceHolder()
     }
-    
+    @IBAction func buttonFixCourse(_ sender: Any) {
+        dissMissKeyBoard()
+        guard validateInputFields() else {
+            alerts.alertNotInputText(on: self)
+            return
+        }
+        guard let resultPrice = calculatedResultPrice() else {
+            return
+        }
+        let fixedString = createFixedString(resultPrice: resultPrice)
+        saveTable(with: fixedString)
+        updateUI()
+        updatePlaceHolder()
+    }
 }
 
 

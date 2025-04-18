@@ -31,6 +31,7 @@ class ApiService {
             
             do {
                 let decoder = JSONDecoder()
+                print(String(data: data, encoding: .utf8) ?? "Не удалось преобразовать Data в String")
                 let marketData = try decoder.decode(MarketPrice.self, from: data)
                 
                 if let price = marketData.price {

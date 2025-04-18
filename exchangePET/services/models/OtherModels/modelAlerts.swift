@@ -38,4 +38,17 @@ class Alerts {
         alert.addAction(action)
         ViewController.present(alert, animated: true)
     }
+    
+    func alertNotInputText(on ViewController: UIViewController) {
+        let alert = UIAlertController(
+            title: "Вы не указали сумму",
+            message: "",
+            preferredStyle: .alert)
+        let action = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil)
+        alert.addAction(action)
+        ViewController.present(alert, animated: true)
+    }
 }

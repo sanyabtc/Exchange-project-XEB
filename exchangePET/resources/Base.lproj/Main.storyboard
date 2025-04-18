@@ -223,6 +223,39 @@
                                 <rect key="frame" x="333" y="74" width="20" height="20"/>
                                 <color key="color" red="0.086706267249999996" green="0.76942896839999997" blue="0.48678674" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RNQ-Pc-81s">
+                                <rect key="frame" x="0.0" y="464" width="393" height="305"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellTableViewFix" id="scb-ve-5DY">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="scb-ve-5DY" id="S65-g6-Cd8">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zo2-yK-uZ8" id="CUN-BH-USM"/>
+                                    <outlet property="delegate" destination="Zo2-yK-uZ8" id="2vT-9A-I2R"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpa-Hx-M7f">
+                                <rect key="frame" x="100" y="409" width="193" height="35"/>
+                                <color key="backgroundColor" red="0.086706267249999996" green="0.76942896839999997" blue="0.48678674" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Uyl-Mu-89Y"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.44596354170000002" blue="0.081964412769999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Зафиксировать курс">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonFixCourse:" destination="Zo2-yK-uZ8" eventType="touchUpInside" id="mfc-v5-UGR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="chG-P9-8nB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -243,12 +276,15 @@
                             <constraint firstItem="xhc-fh-mUU" firstAttribute="centerX" secondItem="zv6-bV-nZ5" secondAttribute="centerX" id="GQS-MH-Sy3"/>
                             <constraint firstItem="4gv-UJ-O6i" firstAttribute="leading" secondItem="ABs-4G-KDb" secondAttribute="trailing" id="H9h-rC-VxK"/>
                             <constraint firstItem="HAg-DE-2lU" firstAttribute="top" secondItem="7pS-Bw-lCF" secondAttribute="bottom" constant="10" id="IXc-lJ-ycl"/>
+                            <constraint firstItem="RNQ-Pc-81s" firstAttribute="top" secondItem="Gpa-Hx-M7f" secondAttribute="bottom" constant="20" id="JMr-gC-hoV"/>
                             <constraint firstItem="lXj-qt-2og" firstAttribute="top" secondItem="4gv-UJ-O6i" secondAttribute="bottom" constant="40" id="K3c-7X-nUK"/>
                             <constraint firstItem="chG-P9-8nB" firstAttribute="trailing" secondItem="HAg-DE-2lU" secondAttribute="trailing" constant="60" id="MLW-0W-EAZ"/>
                             <constraint firstItem="wMl-nx-Ed8" firstAttribute="top" secondItem="4gv-UJ-O6i" secondAttribute="bottom" constant="32" id="NGO-py-NPB"/>
                             <constraint firstItem="Iz8-NB-Hjd" firstAttribute="top" secondItem="lXj-qt-2og" secondAttribute="bottom" constant="17" id="NZE-gn-Ae7"/>
+                            <constraint firstItem="chG-P9-8nB" firstAttribute="trailing" secondItem="RNQ-Pc-81s" secondAttribute="trailing" id="QXK-8W-Srl"/>
                             <constraint firstItem="rQU-Oz-hVv" firstAttribute="leading" secondItem="chG-P9-8nB" secondAttribute="leading" constant="60" id="Rqz-u6-mnu"/>
                             <constraint firstItem="khj-Sk-mXU" firstAttribute="leading" secondItem="chG-P9-8nB" secondAttribute="leading" constant="60" id="Rzd-KZ-hcg"/>
+                            <constraint firstItem="chG-P9-8nB" firstAttribute="trailing" secondItem="Gpa-Hx-M7f" secondAttribute="trailing" constant="100" id="UiF-3a-MK0"/>
                             <constraint firstItem="rQU-Oz-hVv" firstAttribute="top" secondItem="lXj-qt-2og" secondAttribute="bottom" constant="5" id="Ul7-pT-F52"/>
                             <constraint firstItem="lXj-qt-2og" firstAttribute="leading" secondItem="chG-P9-8nB" secondAttribute="leading" constant="60" id="WEu-u4-lgy"/>
                             <constraint firstItem="chG-P9-8nB" firstAttribute="trailing" secondItem="fnl-bV-SOR" secondAttribute="trailing" constant="172" id="YI5-mZ-wBV"/>
@@ -265,9 +301,13 @@
                             <constraint firstItem="zec-Gu-68J" firstAttribute="top" secondItem="chG-P9-8nB" secondAttribute="top" constant="15" id="kxe-tL-Ctb"/>
                             <constraint firstItem="chG-P9-8nB" firstAttribute="trailing" secondItem="zec-Gu-68J" secondAttribute="trailing" constant="40" id="l74-0q-du8"/>
                             <constraint firstItem="fnl-bV-SOR" firstAttribute="top" secondItem="4gv-UJ-O6i" secondAttribute="bottom" constant="10" id="nnH-vx-G4M"/>
+                            <constraint firstItem="Gpa-Hx-M7f" firstAttribute="top" secondItem="AEp-Id-T7z" secondAttribute="bottom" constant="15" id="rpK-4Z-MG1"/>
                             <constraint firstItem="NW5-Mp-AAn" firstAttribute="top" secondItem="khj-Sk-mXU" secondAttribute="bottom" constant="5" id="sWF-SQ-j22"/>
+                            <constraint firstItem="chG-P9-8nB" firstAttribute="bottom" secondItem="RNQ-Pc-81s" secondAttribute="bottom" id="t6v-Qi-ks7"/>
                             <constraint firstItem="chG-P9-8nB" firstAttribute="trailing" secondItem="V2t-sl-eqs" secondAttribute="trailing" constant="60" id="urw-xn-YU6"/>
                             <constraint firstItem="4gv-UJ-O6i" firstAttribute="leading" secondItem="NW5-Mp-AAn" secondAttribute="trailing" id="usn-U6-u7Q"/>
+                            <constraint firstItem="Gpa-Hx-M7f" firstAttribute="leading" secondItem="chG-P9-8nB" secondAttribute="leading" constant="100" id="vaJ-xY-ysY"/>
+                            <constraint firstItem="RNQ-Pc-81s" firstAttribute="leading" secondItem="chG-P9-8nB" secondAttribute="leading" id="vft-lI-UUA"/>
                             <constraint firstItem="NW5-Mp-AAn" firstAttribute="leading" secondItem="chG-P9-8nB" secondAttribute="leading" constant="60" id="wcb-v8-InA"/>
                             <constraint firstItem="HAg-DE-2lU" firstAttribute="top" secondItem="fnl-bV-SOR" secondAttribute="bottom" constant="10" id="xXn-H6-fHa"/>
                             <constraint firstItem="fnl-bV-SOR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lXj-qt-2og" secondAttribute="trailing" constant="8" symbolic="YES" id="yLT-3t-bHT"/>
@@ -281,9 +321,11 @@
                     <connections>
                         <outlet property="bottomButtonOutlet" destination="rQU-Oz-hVv" id="23a-DZ-iPI"/>
                         <outlet property="bottomTextfield" destination="HAg-DE-2lU" id="LuL-Wm-cCZ"/>
+                        <outlet property="fixButton" destination="Gpa-Hx-M7f" id="GPq-9j-Wfj"/>
                         <outlet property="indicator" destination="zec-Gu-68J" id="Ouy-tT-aTq"/>
                         <outlet property="labelBackGround" destination="AEp-Id-T7z" id="bFq-JP-3nr"/>
                         <outlet property="labelLastUpdate" destination="iwY-7z-Zu2" id="NpY-rb-OD0"/>
+                        <outlet property="tableViewFixHistory" destination="RNQ-Pc-81s" id="mcv-IU-oe4"/>
                         <outlet property="timerLabel" destination="Et9-4x-NcY" id="kbO-TX-rFQ"/>
                         <outlet property="topButtonOutlet" destination="NW5-Mp-AAn" id="ZgB-0M-LC2"/>
                         <outlet property="topTextfield" destination="4gv-UJ-O6i" id="yme-zm-y16"/>

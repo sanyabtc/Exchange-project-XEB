@@ -19,7 +19,8 @@ class SettingsForView {
         viewController.topTextfield.backgroundColor = .clear
         viewController.bottomTextfield.backgroundColor = .clear
 
-        
+        viewController.fixButton.layer.cornerRadius = 7
+        viewController.fixButton.layer.masksToBounds = true
     }
     
     static func setBoldTitle(text: String) -> NSAttributedString {

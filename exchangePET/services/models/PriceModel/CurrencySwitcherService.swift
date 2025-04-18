@@ -12,4 +12,5 @@ class CurrencySwitcher {
             CurrencyStorage.saveBottomCurrency(index: bottom)
         }
     }
+
 }
