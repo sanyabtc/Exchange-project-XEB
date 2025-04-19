@@ -18,6 +18,7 @@
 -  UserDefaults для хранения данных
 
 📸 Скриншоты
+
 ![IMAGE 2025-04-18 15:01:35](https://github.com/user-attachments/assets/0436c8b5-94d9-468f-a899-8371e51f717f)
 ![IMAGE 2025-04-18 15:01:39](https://github.com/user-attachments/assets/52bd6e51-8244-4543-81eb-b497d1772587)
 ![IMAGE 2025-04-18 15:01:41](https://github.com/user-attachments/assets/65b336c2-5994-4747-9e5f-c23016d5d0bc)
