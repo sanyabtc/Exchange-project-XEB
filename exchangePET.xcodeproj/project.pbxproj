@@ -33,7 +33,7 @@
 		158064802D9D5C9D00D20E82 /* Exceptions for "exchangePET" folder in "exchangePET" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				resources/Info.plist,
 			);
 			target = 158064572D9D5C9A00D20E82 /* exchangePET */;
 		};
@@ -292,7 +292,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KP96PSKRAX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = exchangePET/Info.plist;
+				INFOPLIST_FILE = exchangePET/resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -323,7 +323,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KP96PSKRAX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = exchangePET/Info.plist;
+				INFOPLIST_FILE = exchangePET/resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

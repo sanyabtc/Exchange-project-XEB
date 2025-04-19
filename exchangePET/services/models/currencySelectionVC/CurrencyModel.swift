@@ -6,20 +6,13 @@
 //
 
 import Foundation
-import UIKit
 
-struct Currency: Equatable {
-    let image: UIImage?
+struct Currency: CurrencyModelProtocol, Equatable {
+
+    var fullName: String
     let code: String
-    let name: String
-    
     var display: String {
-        return "\(code) - \(name)"
+        return "\(code) - \(fullName)"
     }
-}
 
-let currenciesModel: [Currency] = [
-    Currency(image: UIImage(systemName: "dollarsign.circle.fill"), code: "USDT", name: "Tether USD"),
-    Currency(image: UIImage(systemName: "dollarsign.circle.fill"), code: "USD", name: "US Dollar"),
-    Currency(image: UIImage(systemName: "rublesign.circle.fill"), code: "RUB", name: "Russian Ruble")
-]
+}

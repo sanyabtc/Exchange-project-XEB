@@ -23,17 +23,18 @@ class ViewController: UIViewController, CurrencySelectionDelegate {
     
     //MARK: Data
     let apiService = ApiService()
+    var monitor = NetWorkMonitor()
+    let alerts = Alerts()
+    var timeService: TimeService?
     var choosedIndexPathTop: IndexPath?
     var choosedIndexPathBot: IndexPath?
     var cachedPrice: Double?
-    var timeService: TimeService?
     var isUpdating = false
     let topTextFieldFormatter = CurrencyTextFieldFormatter()
     let bottomTextFieldFormatter = CurrencyTextFieldFormatter()
     private var currentTopCurrency: String = ""
     private var currentBotCurrency: String = ""
-    var monitor = NetWorkMonitor()
-    let alerts = Alerts()
+    let currenciesModel = CurrencyRepository.shared.currencies
 
     //MARK: LifeCycle
 
