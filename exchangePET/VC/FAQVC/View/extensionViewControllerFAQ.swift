@@ -4,24 +4,19 @@
 //
 //  Created by Александр Басалаев on 16.04.2025.
 //
-
+//MARK: TableView for FAQ View
 import UIKit
 import Foundation
 
 let identifierForTableInVCFAQ = "Cell"
 
-let sections = [
-    "Выбирайте лучших",
-    "Офисы",
-    "Персональный менеджер",
-    "Круглосуточная поддержка"
-]
+
 
 extension ViewControllerFAQ: UITableViewDelegate, UITableViewDataSource {
     //MARK: TableViewDataSource
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return FAQRepository.shared.sections.count
     }
     
     //MARK: TableViewDelegate
@@ -32,7 +27,7 @@ extension ViewControllerFAQ: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifierForTableInVCFAQ, for: indexPath)
         
-        cell.textLabel?.text = sections[indexPath.section]
+        cell.textLabel?.text = viewModel.titleForSection(indexPath.section)
         cell.accessoryType = .disclosureIndicator
         
         return cell

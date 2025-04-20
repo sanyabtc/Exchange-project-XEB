@@ -16,7 +16,7 @@ extension CurrencySelectionViewController: UITableViewDelegate, UITableViewDataS
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 48
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

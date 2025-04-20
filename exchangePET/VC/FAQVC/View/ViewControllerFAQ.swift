@@ -3,21 +3,23 @@ import UIKit
 
 class ViewControllerFAQ: UIViewController {
 
-    let links = Links()
+    var viewModel: ViewModelFAQ!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel = ViewModelFAQ()
     }
 
     
     //MARK: Actions
     @IBAction func buttonTelegramLink(_ sender: Any) {
-        links.telegramLink()
+        viewModel.openTelegram()
     }
     @IBAction func buttonWhatsAppLink(_ sender: Any) {
-        links.whatsAppLink()
+        viewModel.openWhatsApp()
     }
     @IBAction func buttonMailLink(_ sender: Any) {
-        links.mailLink()
+        viewModel.openEmail()
     }
 }

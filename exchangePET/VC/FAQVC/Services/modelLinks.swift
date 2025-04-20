@@ -1,8 +1,7 @@
 import Foundation
 import UIKit
-import Combine
 
-class Links {
+class Links: LinksProtocol {
     
     func telegramLink() {
         let userNameTelegramm = "CassiusMarcellus_trade"
