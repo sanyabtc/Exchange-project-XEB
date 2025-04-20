@@ -338,7 +338,7 @@
         <!--BrodskiyExchange-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewControllerSecond" customModule="exchangePET" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewControllerForm" customModule="exchangePET" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -467,10 +467,10 @@
             </objects>
             <point key="canvasLocation" x="2919.8473282442746" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller3-->
+        <!--View ControllerFAQ-->
         <scene sceneID="CTl-ht-zw2">
             <objects>
-                <viewController id="LN3-rF-rgY" customClass="ViewController3" customModule="exchangePET" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LN3-rF-rgY" customClass="ViewControllerFAQ" customModule="exchangePET" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kCr-uI-7xU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

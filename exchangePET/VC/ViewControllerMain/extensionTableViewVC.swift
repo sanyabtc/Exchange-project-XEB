@@ -17,7 +17,7 @@ struct FixHistory {
     }
     
     func dataInput(codeInput: String, codeOutput: String, time: String, inputSum: String, outputSum: String, price: String) -> String {
-        return ("\(codeInput) -> \(codeOutput) \(time)\n\(inputSum) -> \(outputSum) Цена: \(price)")
+        return ("\(codeInput) to \(codeOutput) \(time)\n\(inputSum) to \(outputSum) Цена: \(price)")
     }
 }
 

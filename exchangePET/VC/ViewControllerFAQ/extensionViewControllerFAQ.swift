@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-let identifierForTableInVc3 = "Cell"
+let identifierForTableInVCFAQ = "Cell"
 
 let sections = [
     "Выбирайте лучших",
@@ -17,7 +17,7 @@ let sections = [
     "Круглосуточная поддержка"
 ]
 
-extension ViewController3: UITableViewDelegate, UITableViewDataSource {
+extension ViewControllerFAQ: UITableViewDelegate, UITableViewDataSource {
     //MARK: TableViewDataSource
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -30,7 +30,7 @@ extension ViewController3: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifierForTableInVc3, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifierForTableInVCFAQ, for: indexPath)
         
         cell.textLabel?.text = sections[indexPath.section]
         cell.accessoryType = .disclosureIndicator

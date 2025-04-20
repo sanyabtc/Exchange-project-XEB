@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class ViewController3: UIViewController {
+class ViewControllerFAQ: UIViewController {
 
     let links = Links()
     

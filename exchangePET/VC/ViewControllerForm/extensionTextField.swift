@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-extension ViewControllerSecond: UITextFieldDelegate {
+extension ViewControllerForm: UITextFieldDelegate {
     func configureTextFields() {
         textFieldEmail.delegate = self
         textFieldTelegram.delegate = self

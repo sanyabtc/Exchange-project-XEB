@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class ViewControllerSecond: UIViewController {
+class ViewControllerForm: UIViewController {
 
     //MARK: Outlets
     
@@ -22,7 +22,7 @@ class ViewControllerSecond: UIViewController {
         super.viewDidLoad()
         
         configureTextFields()
-        UIsettingsVC2.settingForVC2(for: self)
+        UIsettingsVCForm.settingForVCForm(for: self)
         networkMonitor.startMonitoring()
 
         textFieldIsEditing()

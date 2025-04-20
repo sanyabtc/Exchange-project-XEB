@@ -11,7 +11,8 @@ class CurrencyRepository {
     let currencies: [Currency] = [
         Currency(fullName: "Tether USD", code: "USDT"),
         Currency(fullName: "US Dollar", code: "USD"),
-        Currency(fullName: "Russian Ruble", code: "RUB")
+        Currency(fullName: "Russian Ruble", code: "RUB"),
+        Currency(fullName: "Euro", code: "EUR")
     ]
     
     private init() {}
