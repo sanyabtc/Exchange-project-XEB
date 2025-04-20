@@ -77,12 +77,19 @@ class ViewControllerMain: UIViewController, CurrencySelectionDelegate {
             return
         }
         vc.delegate = self
-        vc.selectedIndex = selectedIndex
+        vc.viewModel = CurrencySelectionViewModel()
+        vc.viewModel.selectedIndex = selectedIndex
         vc.isTopButton = isTop
         if isTop, let index = choosedIndexPathBot?.row {
-            vc.blockedCurrency = currenciesModel[index]
+            let blocked = currenciesModel[index]
+            if let blockedIndex = CurrencyRepository.shared.currencies.firstIndex(of: blocked) {
+                vc.viewModel.blockedCurrency = IndexPath(row: blockedIndex, section: 0)
+            }
         } else if let index = choosedIndexPathTop?.row {
-            vc.blockedCurrency = currenciesModel[index]
+            let blocked = currenciesModel[index]
+            if let blockedIndex = CurrencyRepository.shared.currencies.firstIndex(of: blocked) {
+                vc.viewModel.blockedCurrency = IndexPath(row: blockedIndex, section: 0)
+            }
         }
         vc.modalPresentationStyle = .pageSheet
         if let sheet = vc.sheetPresentationController {

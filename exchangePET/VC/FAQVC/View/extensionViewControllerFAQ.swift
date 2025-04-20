@@ -16,7 +16,7 @@ extension ViewControllerFAQ: UITableViewDelegate, UITableViewDataSource {
     //MARK: TableViewDataSource
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return FAQRepository.shared.sections.count
+        return viewModel.numberOfSections()
     }
     
     //MARK: TableViewDelegate

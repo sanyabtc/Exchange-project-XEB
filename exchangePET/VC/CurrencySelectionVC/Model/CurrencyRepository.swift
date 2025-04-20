@@ -16,4 +16,6 @@ class CurrencyRepository {
     ]
     
     private init() {}
+    
+    var textTitle = "Выберите нужную валюту"
 }

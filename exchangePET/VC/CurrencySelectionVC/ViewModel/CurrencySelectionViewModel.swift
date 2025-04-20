@@ -27,4 +27,13 @@ final class CurrencySelectionViewModel {
     func isCurrencyBlocked(at indexPath: IndexPath?) -> Bool {
         return indexPath == blockedCurrency
     }
+    
+    func titleHeader() -> String {
+        return CurrencyRepository.shared.textTitle
+    }
+    
+    func isSelected(at indexPath: IndexPath) -> Bool {
+        return indexPath == selectedIndex
+    }
+    
 }

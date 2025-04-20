@@ -18,18 +18,13 @@ class CurrencySelectionViewController: UIViewController {
     
     //MARK: Data
     weak var delegate: CurrencySelectionDelegate?
-    var selectedIndex: IndexPath?
-    var textTitle = "Выберите нужную валюту"
+    var viewModel: CurrencySelectionViewModel!
     var isTopButton: Bool = false
-    var blockedCurrency: Currency?
-    var currencies: [Currency] = []
     
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        currencies = CurrencyRepository.shared.currencies
-        
+
         tableView.delegate = self
         tableView.dataSource = self
     }
