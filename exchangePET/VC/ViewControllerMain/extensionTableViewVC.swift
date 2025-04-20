@@ -24,7 +24,7 @@ struct FixHistory {
 let fixedHistorySave = FixedHistorySave()
 var sectionsTableView: [String] = []
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension ViewControllerMain: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

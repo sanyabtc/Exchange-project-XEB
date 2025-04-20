@@ -56,7 +56,7 @@
         <!--BrodskiyExchange-->
         <scene sceneID="gUZ-fV-Z8t">
             <objects>
-                <viewController id="Zo2-yK-uZ8" customClass="ViewController" customModule="exchangePET" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Zo2-yK-uZ8" customClass="ViewControllerMain" customModule="exchangePET" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zv6-bV-nZ5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -9,9 +9,9 @@ class TimeService {
     }
     
     private var timer: Timer?
-    private weak var viewController: ViewController?
+    private weak var viewController: ViewControllerMain?
     
-    init(viewController: ViewController) {
+    init(viewController: ViewControllerMain) {
         self.viewController = viewController
     }
     

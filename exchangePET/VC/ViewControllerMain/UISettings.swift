@@ -10,7 +10,7 @@ import Foundation
 
 class SettingsForView {
     
-    static func settingsForViewController(for viewController: ViewController) {
+    static func settingsForViewController(for viewController: ViewControllerMain) {
         viewController.labelBackGround.layer.cornerRadius = 10
         viewController.labelBackGround.layer.masksToBounds = true
         

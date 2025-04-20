@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, CurrencySelectionDelegate {
+class ViewControllerMain: UIViewController, CurrencySelectionDelegate {
     
     //MARK: OUTLETS
     @IBOutlet weak var labelBackGround: UILabel!
