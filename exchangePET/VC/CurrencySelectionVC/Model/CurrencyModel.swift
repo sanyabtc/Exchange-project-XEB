@@ -14,5 +14,4 @@ struct Currency: CurrencyModelProtocol, Equatable {
     var display: String {
         return "\(code) - \(fullName)"
     }
-
 }

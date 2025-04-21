@@ -3,12 +3,11 @@ import UIKit
 
 class ViewControllerFAQ: UIViewController {
 
-    var viewModel: ViewModelFAQ!
+    var viewModel: ViewModelFAQ = ViewModelFAQ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel = ViewModelFAQ()
+
     }
 
     

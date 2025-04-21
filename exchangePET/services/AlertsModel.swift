@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class Alerts {
+class AlertsModel {
     func alertSuccesfull(on ViewController: UIViewController){
         let alert = UIAlertController(
             title: "Вы оставили заявку",

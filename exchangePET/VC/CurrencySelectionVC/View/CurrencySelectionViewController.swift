@@ -18,7 +18,7 @@ class CurrencySelectionViewController: UIViewController {
     
     //MARK: Data
     weak var delegate: CurrencySelectionDelegate?
-    var viewModel: CurrencySelectionViewModel!
+    var viewModel: CurrencySelectionViewModel = CurrencySelectionViewModel()
     var isTopButton: Bool = false
     
     //MARK: Lifecycle

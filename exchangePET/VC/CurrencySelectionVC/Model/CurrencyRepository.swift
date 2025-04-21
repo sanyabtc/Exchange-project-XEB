@@ -15,7 +15,7 @@ class CurrencyRepository {
         Currency(fullName: "Euro", code: "EUR")
     ]
     
-    private init() {}
+    let textTitle = "Выберите нужную валюту"
     
-    var textTitle = "Выберите нужную валюту"
+    private init() {}
 }

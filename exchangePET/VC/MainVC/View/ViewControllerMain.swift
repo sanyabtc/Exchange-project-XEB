@@ -24,7 +24,7 @@ class ViewControllerMain: UIViewController, CurrencySelectionDelegate {
     //MARK: Data
     let apiService = ApiService()
     var monitor = NetWorkMonitor()
-    let alerts = Alerts()
+    let alerts = AlertsModel()
     var timeService: TimeService?
     var choosedIndexPathTop: IndexPath?
     var choosedIndexPathBot: IndexPath?

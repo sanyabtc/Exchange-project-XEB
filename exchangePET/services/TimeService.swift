@@ -17,7 +17,7 @@ class TimeService {
     
     private var seconds = 31
     let networkMonitor = NetWorkMonitor()
-    let alerts = Alerts()
+    let alerts = AlertsModel()
     
     func StartTimer() {
         timer?.invalidate()
